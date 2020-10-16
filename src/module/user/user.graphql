@@ -1,0 +1,14 @@
+type Query {
+  getAll: [User]
+}
+
+type User {
+  id: String!
+  name: String!
+  age: Int!
+}
+
+type A{
+  id: String!
+  contents: String!
+}
