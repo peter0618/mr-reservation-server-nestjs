@@ -14,7 +14,7 @@ import { ConfigService } from '@nestjs/config';
         const databasePortFor = configService.get<string>('MYSQL_PORT') || '3306';
         const databaseUserFor = configService.get<string>('MYSQL_ID') || 'root';
         const databaseUserPasswordFor = configService.get<string>('MYSQL_PASS') || '';
-        const databaseName = 'graphql_overview_db';
+        const databaseName = configService.get<string>('MYSQL_DATABASE_NAME') || 'reservation_db';
 
         const isDevelopment = appEnv === 'dev';
 
