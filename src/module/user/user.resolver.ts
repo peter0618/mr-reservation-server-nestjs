@@ -1,20 +1,14 @@
 import { Query, Resolver } from '@nestjs/graphql';
+import { User } from '../../autogen/schema.graphql';
+import { UserService } from './user.service';
 
 @Resolver('User')
 export class UserResolver {
-  @Query()
-  async getAll() {
-    return [
-      {
-        id: '1',
-        name: 'Peter',
-        age: 36,
-      },
-      {
-        id: '2',
-        name: 'Grace',
-        age: 34,
-      },
-    ];
+  constructor(private readonly userService: UserService) {}
+
+  @Query('users')
+  async getAll(): Promise<User[]> {
+    console.log(`getAll()`);
+    return await this.userService.findAll();
   }
 }
