@@ -1,0 +1,61 @@
+extend type Query {
+  """
+  전체 회의실 예약을 조회합니다.
+  """
+  reservations: [Reservation]
+}
+
+"""
+회의실 예약
+"""
+type Reservation {
+  """
+  예약 id
+  """
+  id: Int!
+
+  """
+  회의 안건
+  """
+  meetingAgenda: String!
+
+#  """
+#  예약 비밀번호
+#  """
+#  encryptedPassword: String!
+
+  """
+  예약일 (YYYY-MM-DD)
+  """
+  reservedAt: String!
+
+  """
+  회의실 사용 시작 시각 (HH:mm:ss)
+  """
+  startTime: String!
+
+  """
+  회의실 사용 종료 시각 (HH:mm:ss)
+  """
+  endTime: String!
+
+  """
+  예약자 이름
+  """
+  madeBy: String!
+
+  """
+  예약 삭제여부
+  """
+  delYn: String!
+
+  """
+  수정일시 (yyyy-MM-ddTHH:mm:ssZ)
+  """
+  mdfDtm: String!
+
+  """
+  등록일시 (yyyy-MM-ddTHH:mm:ssZ)
+  """
+  regDtm: String!
+}

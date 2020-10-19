@@ -6,6 +6,7 @@ import { UserModule } from './module/user/user.module';
 import { join } from 'path';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { DatabaseModule } from './database/database.module';
+import { ReservationModule } from './module/reservation/reservation.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { DatabaseModule } from './database/database.module';
     UserModule,
     ConfigurationModule,
     DatabaseModule,
+    ReservationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
