@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { JsonUtil } from '../../util/json.util';
-import * as dayjs from 'dayjs';
+import { toISO8601, toYMD } from '../../util/time';
 
 @Injectable()
 export class ReservationService {
@@ -16,9 +16,9 @@ export class ReservationService {
       this.logger.debug(rows);
 
       return rows.map(row => {
-        row.reservedAt = dayjs(row.reservedAt).format('YYYY-MM-DD');
-        row.mdfDtm = dayjs(row.mdfDtm).toISOString();
-        row.regDtm = dayjs(row.regDtm).toISOString();
+        row.reservedAt = toYMD(row.reservedAt);
+        row.mdfDtm = toISO8601(row.mdfDtm);
+        row.regDtm = toISO8601(row.regDtm);
         return row;
       });
 
