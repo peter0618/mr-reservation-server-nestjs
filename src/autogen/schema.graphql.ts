@@ -6,17 +6,19 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export enum Role {
+    ADMIN = "ADMIN",
+    USER = "USER"
+}
+
 export abstract class IQuery {
-    abstract getAll(): User[] | Promise<User[]>;
+    abstract users(): User[] | Promise<User[]>;
 }
 
 export class User {
-    id: string;
+    id: number;
+    mobilePhone: string;
     name: string;
-    age: number;
-}
-
-export class A {
-    id: string;
-    contents: string;
+    email: string;
+    role: Role;
 }
